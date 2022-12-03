@@ -1,44 +1,45 @@
 <?php
-$email = $_POST['email'];
-$password = $_POST['password'];
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $password = $_POST['password'];
+    $host = 'localhost';
+
+    if (!$email) {
+        echo 'That email is not valid!<br/>';
+      }
+    
+      if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/", $password)) {
+        echo 'Password must contain one letter one number and be a minimum length of 8! <br/>';
+      }
+
+    $conn = new mysqli($host, "root", "", "dolphin_crm");
+    if($conn->connect_error){
+        die("Failed to connect:  ".$conn->connect_error);
+    }else{
+            
+            $data = $conn->query("SELECT * FROM users WHERE email='$email' AND password='$password'");
+    
+            if ($data->num_rows > 0) {
+                $_SESSION["email"] = $email;
+                $_SESSION["loggedIn"] = 1;
+                
+                header("Location: dashboard.php");
+                exit();
+    
+            } else {
+                
+                echo "<p> Invalid Email or Password </p>";
+            }
+        }	
+
+    
+}
+
+
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" a href="homestyle.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <title>Dashboard</title>
-</head>
-<header>
-    <img src="dolphin.jpeg">
-    <h1> Dolphin CRM </h1>
-</header>    
-<body>
-
-<aside class="nav-bar">
-
-    
-    
-        <ul>
-            <li><i class="fas fa-home"></i><a href="login.php">Home</a></li>
-            <li><i class="fas fa-address-book"></i><a href="contact.php">New Contact</a></li>
-            <li><i class="fas fa-user"></i><a href="users.php">Users</a></li>
-            <li><i class="fas fa-sign-out-alt"></i><a href="index.html"> Logout </a></li>
-
-        </ul>
-       
-    </aside>
-
-    <div class="dashboard-container">
-        <h2>Dashboard </h2>
-        <i class="fas fa-pls"></i><button type="button" id="addBtn" class="addbtn">Add Contact </button> 
-    </div>    
-
-
-
-</body>
-</html>
