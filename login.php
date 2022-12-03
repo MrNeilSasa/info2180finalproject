@@ -9,26 +9,35 @@ $password = $_POST['password'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" a href="homestyle.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>Dashboard</title>
 </head>
 <header>
+    <img src="dolphin.jpeg">
     <h1> Dolphin CRM </h1>
 </header>    
 <body>
-    <div class="dashboard-container">
-        <h2>Dashboard </h2>
-        <button type="button" id="addBtn" class="addbtn">Add Contact </button> 
-    </div>    
+
+<aside class="nav-bar">
+
     
-    <aside class="nav-bar">
+    
         <ul>
-            <li><a href="login.php">Home</a></li>
-            <li><a href="contact.php">New Contact</a></li>
-            <li><a href="users.php">Example.com</a></li>
+            <li><i class="fas fa-home"></i><a href="login.php">Home</a></li>
+            <li><i class="fas fa-address-book"></i><a href="contact.php">New Contact</a></li>
+            <li><i class="fas fa-user"></i><a href="users.php">Users</a></li>
+            <li><i class="fas fa-sign-out-alt"></i><a href="index.html"> Logout </a></li>
 
         </ul>
-        <a href="index.html"> Logout </a>
+       
     </aside>
+
+    <div class="dashboard-container">
+        <h2>Dashboard </h2>
+        <i class="fas fa-pls"></i><button type="button" id="addBtn" class="addbtn">Add Contact </button> 
+    </div>    
+
 
 
 </body>
