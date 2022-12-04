@@ -31,7 +31,8 @@
     <div class="dashboard-container">
         <h2>Dashboard </h2>
         <i class="fas fa-pls"></i><button type="button" id="addBtn" class="addbtn">Add Contact </button> 
-    </div>    
+    </div>
+
 
 
 
