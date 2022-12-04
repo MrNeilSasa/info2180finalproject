@@ -58,11 +58,7 @@ aside{
 .nav-bar{
     grid-column: 1;
     background-color: white;
-    height: 700px;
-    
-   
-    
-    
+    height: 700px;    
 }
 
 .addbtn{
@@ -76,10 +72,109 @@ aside{
     color: white;
     
 }
+
 h2{
     float: left;
 }
 
-.dashboard-container{
+.body-content{
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
 
+.body-heading{
+    padding-left: 40px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    height: 60px; 
+}
+
+form{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .input{
+    display: flex;
+    width: calc(100% / 2 - 30px);
+    flex-direction: column;
+    margin: 15px;
+}
+.title-input{
+    display: flex;
+    width: calc(20% / 2 - 30px);
+    flex-direction: column;
+    margin: 15px;
+}
+
+
+.input label{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.input input{
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.title-input select{
+    padding: 10px;
+    border-radius: 5px;
+
+}
+.input select{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sbody{
+    padding-left: 40px;
+    height: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+
+#saveuser{
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    border-style: none;
+    margin-left: 1035px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.sects{
+    width: 1215px;
+}
+
+
+.button{
+    background-color: rgb(236, 236, 236);
+    margin: 15px;
+}
+
+.success{
+    font-size: 10px;
+    color: green;
+    position: relative;
+    animation: buttons .4s linear;
+    display: none;
+}
+
+.failed{
+    font-size: 10px;
+    color: red;
+    position: relative;
+    animation: buttons .4s linear;
+    display: none;
 }

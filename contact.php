@@ -138,7 +138,6 @@
     $stmt = $conn->prepare("insert into Contacts (title,firstname, lastname, email, telephone, company, type, assigned_to) values (?, ?, ?, ?,?,?,?,?)");
     $stmt->bind_param("ssssisss", $title, $firstname, $lastname, $email, $telephpne, $company, $type, $assigned_to);
     $stmt->execute();
-    echo"registration Successfully...";
     $stmt->close();
     $conn->close();
     
