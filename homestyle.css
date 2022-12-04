@@ -69,17 +69,44 @@ aside{
     float: right;
     margin-top: 22px;
     padding: 10px;
+    width: 150px;
     border-radius: 5px;
     border: hidden;
     background-color: rgba(28, 120, 196, 0.813);
     font-size: 15px;
     color: white;
+    align-items: center;
     
+}
+
+.addbtn:hover{
+    background-color: rgba(126, 12, 240, 0.658);
+}
+
+.dashboard-container{
+    margin-left: 10px;
 }
 h2{
     float: left;
 }
+.filter{
+    position: relative;
+    top: 60px;
+    right:30px;
+    background-color: white;
+    margin-left: 50px;
+    border-radius: 5px;
+    margin-right: -33px;
+}
 
-.dashboard-container{
+.filterbtn{
+    border: hidden;
+    background-color: white;
+    font-size: 17px;
+    color: grey;
+    
+}
 
+.filterbtn:hover{
+    color: blueviolet;
 }
