@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link href="newuser.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="newuser.js"></script>
+    </head>
+    <body>
+        <div class="adduser">
+            <header class="header">
+                <div class="heading">
+                <img src="https://cdn-icons-png.flaticon.com/512/1864/1864473.png" class="header-img">
+                <h1>Dolphin CRM</h1>  
+                </div>
+            </header>
+    
+            <section class="sects">
+                <div class="sidebar">
+                    <nav class="menu">
+                        <!-- GET HTML LINKS FROM OTHER MEMBERS-->
+                        <li><a href=""><img src="https://cdn-icons-png.flaticon.com/512/2413/2413074.png"height="30" width="30"> Home</a></li>
+                        <li><a href=""><img src="https://cdn-icons-png.flaticon.com/512/2102/2102647.png"height="30" width="30"> New Contact</a></li>
+                        <li><a href=""><img src="https://cdn-icons-png.flaticon.com/512/3239/3239045.png"height="30" width="30"> Users</a></li>
+                        <hr>
+                        <li><a href=""><img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png"height="30" width="30"> Logout</a></li>
+                    </nav>
+                </div>
+                <section class="sbody">
+                    <div class="body-heading">
+                        <h2> New User</h2>
+                    </div>
+                    <div class="body-content" id="error">
+                        <form action="newuser.php" id="form">
+                            <div class="input">
+                                <label for="firstname">First name</label>
+                                <input type="text" placeholder="Enter first name" id="firstname" name="firstname" required>
+                                <div class="error"></div>
+                            </div>
+
+                            <div class="input">
+                                <label for="lastname">Last name</label>
+                                <input type="text" placeholder="Enter last name" id="lastname" name="lastname" required>
+                                <div class="error"></div>
+                            </div>
+
+                            <div class="input">
+                                <label for="email">Email</label>
+                                <input type="text" placeholder="Enter email" id="email" name="email" required>
+                                <div class="error"></div>
+                            </div>
+
+                            <div class="input">
+                                <label for="password">Password</label>
+                                <input type="password" placeholder="Enter password" id="password" name="password" required>
+                                <div class="error"></div>
+                            </div>
+
+                            <div class="input"> 
+                                <label for="role">Role</label>
+                                <select name="role" id="role">
+                                    <option value="admin">Admin</option>
+                                    <option value="member">Member</option>
+                                </select>
+                            </div>
+                            <button type="submit" id="saveuser" name="saveuser">Save</button>
+                        </form>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </body>
+</html>
