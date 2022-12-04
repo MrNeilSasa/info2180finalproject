@@ -1,6 +1,6 @@
 window.addEventListener('load', function() {
     let allbtn = document.getElementById('all');
-    let name = 'dashboard.php?type=';
+    let name = 'dashboard.php?type=Support';
     console.log(name);
 
     allbtn.addEventListener('click', function(){

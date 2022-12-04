@@ -15,7 +15,7 @@ Create database dolphin_crm;
 use dolphin_crm;
 
 drop table if exists Users;
-create table Users (id INTEGER(20), firstname VARCHAR(20), lastname VARCHAR(20), password VARCHAR(20), email VARCHAR(30), role VARCHAR(20), created_at DATETIME);
+create table Users (id INTEGER(20) NOT NULL AUTO_INCREMENT, firstname VARCHAR(20), lastname VARCHAR(20), password VARCHAR(20), email VARCHAR(30), role VARCHAR(20), created_at DATETIME);
 
 drop table if exists Contacts;
 create table Contacts (id INTEGER(20), title VARCHAR(20),firstname VARCHAR(20), lastname VARCHAR(20), email VARCHAR(30), telephone VARCHAR(20), company VARCHAR(20), type VARCHAR(30), assigned_to INTEGER(20), created_by INTEGER(20), created_at DATETIME, updated_at DATETIME);
