@@ -33,6 +33,14 @@
         <i class="fas fa-pls"></i><button type="button" id="addBtn" class="addbtn">Add Contact </button> 
     </div>
 
+    <div class="filter">
+        <h3><i class='fas fa-filter'></i>Filter By:</label>
+        <button id="all" class="filterbtn">All</button>
+        <button id="saleslead" class="filterbtn">Sales Lead</button>
+        <button id="Support" class="filterbtn">Support</button>
+        <button id="assigned" class="filterbtn">Assigned to Me</button>
+    </div>
+
 
 
 
