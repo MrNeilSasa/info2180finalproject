@@ -31,7 +31,7 @@
                         <h2> New User</h2>
                     </div>
                     <div class="body-content" id="error">
-                        <form action="newuser.php" id="form">
+                        <form action="newuser.php" id="form" method="get">
                             <div class="input">
                                 <label for="firstname">First name</label>
                                 <input type="text" placeholder="Enter first name" id="firstname" name="firstname" required>
@@ -64,6 +64,9 @@
                                 </select>
                             </div>
                             <button type="submit" id="saveuser" name="saveuser">Save</button>
+                            <div id="result">
+
+                            </div>
                         </form>
                     </div>
                 </section>

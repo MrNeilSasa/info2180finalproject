@@ -1,21 +1,62 @@
 "use strict";
+window.addEventListener('load', function(){
+    var form = document.getElementById('form');
+    console.log(form);
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
 
-var form = document.getElementById('form');
+        var firstname = document.getElementById('firstname').value;
+        var lastname = document.getElementById('lastname').value;
+        var password = document.getElementById('password').value;
+        var email = document.getElementById('email').value;
+        var role = document.getElementById('role').value;
 
-form.addEventListener('submit', function(e){
-    e.preventDefault();
+        console.log(firstname);
+        console.log(lastname);
+        console.log(password);
+        console.log(email);
+        console.log(role);
 
-    var firstname = document.getElementById('firstname').value;
-    var lastname = document.getElementById('lastname').value;
-    var password = document.getElementById('password').value;
-    var email = document.getElementById('email').value;
+        fetch('newuser.php?firstname=' + firstname + '&lastname=' + lastname + '&password=' + password + '&email=' + email + '&role=' + role)
+        .then(response => {
+            if(response.ok) {
+                return response.text()
+            } else {
+                return Promise.reject('Something went wrong!')
+            }
+        })
+        .then(data =>{
+            
+            console.log(data);
+            let result = document.querySelector('#result');
+            result.innerHTML = data;
 
-    console.log(firstname);
-    console.log(lastname);
-    console.log(password);
-    console.log(email);
+                
+        })
+        .catch(error => console.log('There was an error: ' + error));
 
+
+    })
 })
+
+/*
+var form = document.getElementById('form');
+    console.log(form);
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        var firstname = document.getElementById('firstname').value;
+        var lastname = document.getElementById('lastname').value;
+        var password = document.getElementById('password').value;
+        var email = document.getElementById('email').value;
+
+        console.log(firstname);
+        console.log(lastname);
+        console.log(password);
+        console.log(email);
+
+    })
+    */
 /* first trial
 function save_data(){
     var input = document.getElementsByClassName('input');
