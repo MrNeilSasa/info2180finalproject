@@ -1,4 +1,4 @@
-*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
@@ -15,7 +15,7 @@ Create database dolphin_crm;
 use dolphin_crm;
 
 drop table if exists Users;
-create table Users (id INTEGER(20) NOT NULL AUTO_INCREMENT, firstname VARCHAR(20), lastname VARCHAR(20), password VARCHAR(20), email VARCHAR(30), role VARCHAR(20), created_at DATETIME);
+create table Users (id INTEGER(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, firstname VARCHAR(20), lastname VARCHAR(20), password VARCHAR(20), email VARCHAR(30), role VARCHAR(20), created_at DATETIME);
 
 drop table if exists Contacts;
 create table Contacts (id INTEGER(20), title VARCHAR(20),firstname VARCHAR(20), lastname VARCHAR(20), email VARCHAR(30), telephone VARCHAR(20), company VARCHAR(20), type VARCHAR(30), assigned_to INTEGER(20), created_by INTEGER(20), created_at DATETIME, updated_at DATETIME);
@@ -26,10 +26,10 @@ create table Notes (id INTEGER(20), contact_id INTEGER(20), comment TEXT(20), cr
 Update Users SET password = SHA('password123') WHERE email = 'admin@project2.com';
 
 INSERT into Users (password, email) values ('password123', 'admin@project2.com');
-Insert into Users values (1, "rasss", "clah", "1234", "rasclah@email.com", "fish", "2000-12-12 12:45:00");
-Insert into Users values (2, "ras", "clah", "1234", "rasclah@email.com", "fish", "2001-11-12 12:45:00");
-Insert into Users values (3, "ras", "clah", "1234", "rasclah@email.com", "fish", "2002-10-12 12:45:00");
-Insert into Users values (4, "ras", "clah", "1234", "rasclah@email.com", "fish", "2003-9-12 12:45:00");
+Insert into Users(firstname,lastname,password,email,role,created_at) values ("rasss", "clah", "1234", "rasclah@email.com", "fish", "2000-12-12 12:45:00");
+Insert into Users(firstname,lastname,password,email,role,created_at) values ("ras", "clah", "1234", "rasclah@email.com", "fish", "2001-11-12 12:45:00");
+Insert into Users(firstname,lastname,password,email,role,created_at) values ("ras", "clah", "1234", "rasclah@email.com", "fish", "2002-10-12 12:45:00");
+Insert into Users(firstname,lastname,password,email,role,created_at) values ("ras", "clah", "1234", "rasclah@email.com", "fish", "2003-9-12 12:45:00");
 Insert into Contacts values (1,"toplane", "ras", "clah", "rasclah@email.com", 1234, "fish LTD","Sales Lead",1 , 2, "2000-11-13 12:45:00",  "2000-12-12 12:45:00");
 Insert into Contacts values (2, "jungle", "rass", "clah", "rasclah@email.com", 1234, "fish LTD","Support",2 , 3, "2000-10-14 12:45:00",  "2000-12-12 12:45:00");
 Insert into Contacts values (3, "midlane", "rasss","clah", "rasclah@email.com", 1234, "fish LTD","Sales Lead",3 , 4, "2000-9-15 12:45:00",  "2000-12-12 12:45:00");
