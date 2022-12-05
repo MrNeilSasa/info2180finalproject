@@ -1,7 +1,6 @@
 <?php
 $con = new mysqli('localhost', 'root', '','dolphin_crm');
-$id = 3;
-$date = '2022-11-30 ';
+$date = 'now()';
 $firstname = $_GET['firstname'];
 $lastname = $_GET['lastname'];
 $password = $_GET['password'];
@@ -29,7 +28,7 @@ if(isset($_REQUEST['submit'])){
 
    
 
-    $sql = "INSERT into users  values('$id' , '$firstname', '$lastname', '$password', '$email', '$role', $date)";
+    $sql = "INSERT into users (firstname, lastname, password, email, role, created_at) values('$firstname', '$lastname', '$password', '$email', '$role', $date)";
     $result = mysqli_query($con,$sql);
     if ($result){
         echo "Data inserted successfully";
