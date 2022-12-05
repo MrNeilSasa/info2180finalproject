@@ -1,39 +1,39 @@
-<?php
+<?php   
     session_start();
 
     $title = $_POST['title'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
-    $telephpne = $_POST['telephone'];
+    $telephone = $_POST['telephone'];
     $company = $_POST['company'];
     $type = $_POST['type'];
     $assigned_to = $_POST['assigned_to'];
-
 
     define("DB_SERVER", "localhost");
     define("DB_USERNAME","root");
     define("DB_PASSWORD", "");
     define("DB_NAME","dolphin_crm");
-
-
+    
     $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
-    $query = "SELECT firstname FROM Users";
+
+    $query = "SELECT firstname,lastname FROM Users WHERE id>1000";
     $res = mysqli_query($conn,$query);
 
-
     if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
-    $stmt = $conn->prepare("insert into Contacts (title,firstname, lastname, email, telephone, company, type, assigned_to) values (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssss", $title, $firstname, $lastname, $email, $telephpne, $company, $type, $assigned_to,);
+        die("Connection failed: " . $conn->connect_error);
+        }
+    $stmt = $conn->prepare("insert into Contacts (title, firstname, lastname, email, telephone, company, type, assigned_to) values (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssss", $title, $firstname, $lastname, $email, $telephone, $company, $type, $assigned_to);
     $stmt->execute();
     $stmt->close();
     $conn->close();
 
-    if ($stmt == "true"){
-        $_SESSION['status'] = "Data entered Successfully";
-    }
+    // while ($rows_id = mysqli_fetch_array($res)){
+    // $rows_id['id'] = $_GET['creator_id']; 
+    // } 
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +43,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" a href="homestyle.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="app.js" crossorigin="anonymous"></script>
     <title>New Contact</title>
 </head>
 <header>
@@ -69,7 +69,7 @@
         
             <div class="body-content">
 
-                <form action="contact.php" id="form" method="post">
+                <form name="ContactForm" action="" id="form" onsubmit="return validateForm()" method="post">
 
                     <div class="title-input">
                         <label for="title">Title</label>
@@ -87,32 +87,27 @@
 
                     <div class="input">
                         <label for="fname">First name</label>
-                            <input type="text" placeholder="Enter first name" id="fname" name="firstname">
-                            <div class="error"></div>
+                            <input type="text" placeholder="Enter first name" id="fname" name="firstname" required>
                     </div>
             
                     <div class="input">
                         <label for="lname">Last name</label>
-                            <input type="text" placeholder="Enter last name" id="lname" name="lastname">
-                            <div class="error"></div>
+                            <input type="text" placeholder="Enter last name" id="lname" name="lastname"required>
                     </div>
             
                     <div class="input">
                         <label for="email">Email</label>
-                            <input type="text" placeholder="something@example.com" id="email" name="email">
-                            <div class="error"></div>
+                            <input type="text" placeholder="something@example.com" id="email" name="email"required>
                     </div>
             
                     <div class="input"> 
                         <label for="tele">Telephone</label>
-                            <input type="number" id="tele" name="telephone" >
-                            <div class="error"></div>
+                            <input type="text"placeholder="876-000-0000"  id="tele" name="telephone" required >
                     </div>
             
                     <div class="input"> 
-                        <label for="company">Company</label>
-                            <input type="text" id="compnay" name="company">
-                            <div class="error"></div>
+                        <label for="company">Company</label required>
+                            <input type="text" id="company" name="company">
                     </div>
                 
                     <div class="input"> 
@@ -121,7 +116,6 @@
                                 <option value="Sales Lead">Sales Lead</option>
                                 <option value="Support">Support</option>
                             </select>
-                            <div class="error"></div>
                     </div>
                 
                     <div class="input"> 
@@ -129,25 +123,20 @@
                             <select id="assign" name="assigned_to">
                                 <?php while ($rows = mysqli_fetch_array($res)){
                                         ?>
-                                        <option value=" <?php echo $rows['firstname']; ?> " > <?php  echo $rows['firstname'];   ?> </option>
+                                        <option value=" <?php echo $rows['firstname'].$rows['lastname'] ?> " > <?php  echo $rows['firstname'].$rows['lastname']; ?> </option>
                                     <?php
                                     }
                                     ?>  
                             </select>
-                        <div class="error"></div>
                     </div>
-                   
-
+                
                     <div class="button"> 
-                        <button type="submit"id="saveuser" name="save" onclick="message();">Save</button>
+                        <button type="submit"id="saveuser" name="save">Save</button>
                     </div>
-                    <br>
-                    <div class="success" id="success"> User Successfully Saved.</div>
-                    <div class="failed" id="failed"> Fields are Empty. </div>
-
                 </form>
             </div>
         </section>           
     </section>        
 </body>
 </html>
+

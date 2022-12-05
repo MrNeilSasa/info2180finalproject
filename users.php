@@ -1,3 +1,29 @@
+<?php
+session_start();
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
+    $password = $_POST["password"];
+    $email = $_POST["email"];
+    $role = $_POST["role"];
+
+    define("DB_SERVER", "localhost");
+    define("DB_USERNAME","root");
+    define("DB_PASSWORD", "");
+    define("DB_NAME","dolphin_crm");
+    $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
+
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+
+    $stmt = $conn->prepare("insert into Users (firstname, lastname, password, email, role )values (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss",$firstname, $lastname, $password, $email, $role);
+    $stmt->execute();
+    $stmt->close();
+    $conn->close();
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +85,7 @@
                                     <option value="member">Member</option>
                                 </select>
                             </div>
+                            
                             <button type="submit" id="saveuser" name="saveuser">Save</button>
                             <div id="result">
 
@@ -69,31 +96,3 @@
 </body>
 </html>
 
-<?php
-session_start();
-
-
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
-    $password = $_POST["password"];
-    $email = $_POST["email"];
-    $role = $_POST["role"];
-
-    define("DB_SERVER", "localhost");
-    define("DB_USERNAME","root");
-    define("DB_PASSWORD", "");
-    define("DB_NAME","dolphin_crm");
-    $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
-
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
-
-    
-    $stmt = $conn->prepare("insert into Users (firstname, lastname, password, email, role )values (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss",$firstname, $lastname, $password, $email, $role);
-    $stmt->execute();
-    $stmt->close();
-    $conn->close();
-    
-?>
