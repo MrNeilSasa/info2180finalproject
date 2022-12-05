@@ -65,14 +65,27 @@ aside{
 }
 
 .container{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns:10fr 10fr 10em 10em;
     grid-auto-rows: minmax(100px,auto);
     grid-gap:1px;
     padding-left: 20px;
     padding-top: 20px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 20px;
+    margin-bottom: 500px;
+    margin-top: 50px;
+    border-radius: 5px;
+    border-style: solid;
+
 }
 
+.name{
+    padding-left: 50px;
+}
+
+.email{
+}
 h2{
     display: grid;
 }

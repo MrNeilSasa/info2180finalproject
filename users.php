@@ -50,21 +50,25 @@ else{
 </aside>
 
 
+
+
     <div class="container" name="users">
+
             <?php foreach($userarray as $userinfo){ ?>
-                <div id='name'>
-                <?php echo htmlspecialchars($userinfo['firstname'].' '.$userinfo['lastname']); ?>
+                <div class='name'>
+                    <?php echo htmlspecialchars($userinfo['firstname'].' '.$userinfo['lastname']); ?>
                 </div>
-                <div id='email'> 
+                <div class='email'> 
                     <?php echo htmlspecialchars($userinfo['email']); ?>
                 </div>
-                <div id='role'> 
+                <div class='role'> 
                     <?php echo htmlspecialchars($userinfo['role']); ?>
                 </div>
-                <div id='created_at'> 
+                <div class='created_at'> 
                     <?php echo htmlspecialchars($userinfo['created_at']); ?> 
                 </div>
             <?php } ?>
     </div>
 </body>
 <html>
+
