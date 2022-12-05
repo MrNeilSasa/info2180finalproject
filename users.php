@@ -49,26 +49,25 @@ else{
        
 </aside>
 
+<table class='table'>
+  <thread>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Created</th>
+    </tr>
+  </thread>
+  <tbody>
+<?php foreach($userarray as $row): ?>
+      <tr>
+        <td><?=$row['firstname'].' '.$row['lastname']; ?></td>
+        <td><?=$row['email']; ?></td>
+        <td><?=$row['role']; ?></td>
+        <td><?=$row['created_at']; ?></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
 
-
-
-    <div class="container" name="users">
-
-            <?php foreach($userarray as $userinfo){ ?>
-                <div class='name'>
-                    <?php echo htmlspecialchars($userinfo['firstname'].' '.$userinfo['lastname']); ?>
-                </div>
-                <div class='email'> 
-                    <?php echo htmlspecialchars($userinfo['email']); ?>
-                </div>
-                <div class='role'> 
-                    <?php echo htmlspecialchars($userinfo['role']); ?>
-                </div>
-                <div class='created_at'> 
-                    <?php echo htmlspecialchars($userinfo['created_at']); ?> 
-                </div>
-            <?php } ?>
-    </div>
 </body>
 <html>
-
