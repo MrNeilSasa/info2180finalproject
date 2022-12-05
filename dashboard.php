@@ -32,7 +32,7 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
 <tbody>
 <?php foreach($result as $row): ?>
     <tr>
-      <td><?=$row['title']; ?></td>
+      <td><?=$row['title'].'.'.$row['firstname'].' '.$row['lastname'];?></td>
       <td><?=$row['email']; ?></td>
       <td><?=$row['company']; ?></td>
       <td><?=$row['type']; ?></td>
