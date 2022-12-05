@@ -34,6 +34,7 @@ else{
     <h1> Dolphin CRM </h1>
 </header> 
 <body>
+    
 
 <aside class="nav-bar">
 
@@ -48,6 +49,9 @@ else{
         </ul>
        
 </aside>
+
+<h2>User </h2>
+        <i class="fas fa-pls"></i><button type="button" id="addBtn" class="addbtn"><i class="fa fa-plus" aria-hidden="true"></i>Add User</button>
 
 <table class='table'>
   <thread>
