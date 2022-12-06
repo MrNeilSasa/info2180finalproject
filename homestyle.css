@@ -162,3 +162,30 @@ tbody tr:nth-child(even) {
 td:first-child {
     border-left: 1px solid #cecfd5;
   }
+
+.sty_type_sales{
+    border-radius: 50px;
+    background-color: darkgoldenrod;
+    text-align: center;
+    padding: 1px;
+    color: black;
+}
+
+.sty_type_support{
+    border-radius: 50px;
+    background-color:blueviolet;
+    text-align: center;
+    color: white;
+    padding: 1px;
+
+}
+.button{
+    color: blue;
+}
+.button:hover{
+   color: red;
+}
+
+.rows{
+    height: 60px;
+}
