@@ -16,9 +16,10 @@ header {
     background-color: rgba(5, 3, 47, 0.918);
     color: white;
     font-size: 10px;
-    grid-column: span 2;
+    grid-column: 100%;
     padding: 2px;
     width: 1400px;
+    display:flex;
     
 }
 
@@ -36,9 +37,11 @@ img{
     position: relative;
     bottom: -1.5px;
 }
+
 i{
     float: left;
 }
+
 li{
     list-style: none;
     margin-bottom: 10px;
@@ -58,16 +61,87 @@ aside{
 .nav-bar{
     grid-column: 1;
     background-color: white;
-    height: 700px;
-    
-   
-    
-    
+    height: 700px;   
 }
 
+div.container{
+    display: grid;
+    grid-template-columns:10fr 10fr 10em 10em;
+    grid-auto-rows: minmax(100px,auto);
+    grid-gap:1px;
+    padding-left: 20px;
+    padding-top: 20px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 20px;
+    margin-bottom: 500px;
+    margin-top: 50px;
+    border-radius: 5px;
+    border-style: solid;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-right: 20px;
+
+}
+
+/*div.name:nth-child(even){
+    background-color: blue;
+    border-style: solid;
+    text-align: center;
+}
+
+div.email:nth-child(odd){
+    background-color: aquamarine;
+    border-style: solid;
+    text-align: center;
+}
+
+div.role:nth-child(even){
+    background-color: blue;
+    border-style: solid;
+    text-align: center;
+}
+div.created_at:nth-child(odd){
+    background-color: aqua;
+    border-style: solid;
+    text-align: center;*/
+
+/*div.name:nth-child(odd){
+    background-color: rgba(197, 113, 184, 0.464);
+    border-style: solid;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+div.email:nth-child(even){
+    background-color: aquamarine;
+    border-style: solid;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+div.role:nth-child(odd){
+    background-color: blue;
+    border-style: solid;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+div.created_at:nth-child(even){
+    background-color: aqua;
+    border-style: solid;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 5px;
+}*/
+
+h2{
+    margin-left: 20px;
+}
 .addbtn{
+    position: absolute;
+    bottom: 620px;
+    left: 1205px;
     float: right;
-    margin-top: 17px;
     padding: 10px;
     width: 150px;
     border-radius: 5px;
@@ -83,38 +157,6 @@ aside{
     background-color: rgba(126, 12, 240, 0.658);
 }
 
-.dashboard-container{
-    margin-left: 10px;
-    width: 1150px;
-}
-h2{
-    float: left;
-}
-.filter{
-    position: relative;
-    top: 70px;
-    right:30px;
-    background-color: white;
-    margin-left: 50px;
-    border-radius: 5px;
-    margin-right: -33px;
-    padding: 0.5px;
-    width: 1000;
-}
-
-.filterbtn{
-    border: hidden;
-    background-color: white;
-    font-size: 17px;
-    color: grey;
-    
-}
-
-.filterbtn:hover{
-    color: blueviolet;
-}
-
-
 table {
     background-color: #ffffff;
     border-collapse: collapse;
@@ -124,6 +166,10 @@ table {
     border-radius: 5px;
     width: 1131px;
     border: hidden;
+    position: absolute;
+    bottom: 300px;
+    right: 30px;
+
     
   }
   
@@ -157,8 +203,18 @@ tbody tr:nth-child(even) {
     background: #f0f0f2;
   }
   
-
+/*td {
+    border-bottom: 1px solid #cecfd5;
+    border-right: 1px solid #cecfd5;
+  }*/
 
 td:first-child {
     border-left: 1px solid #cecfd5;
   }
+
+.results{
+    /*position: absolute;
+    bottom: 260px;
+    left: 230px;*/
+}
+
