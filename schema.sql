@@ -31,3 +31,5 @@ Update Users SET password = SHA('password123') WHERE email = 'admin@project2.com
 INSERT into Users (password, email) values ('password123', 'admin@project2.com');
 
 ALTER TABLE Contacts MODIFY COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+
+UPDATE Contacts SET creator_by = (SELECT u.id from Users u WHERE u.firstname = Contacts.assigned_to);
