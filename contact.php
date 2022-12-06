@@ -9,6 +9,8 @@
         $company = $_POST['company'];
         $type = $_POST['type'];
         $assigned_to = $_POST['assigned_to'];
+
+
     }
     
         define("DB_SERVER", "localhost");
@@ -30,6 +32,10 @@
         $stmt->execute();
         $stmt->close();
         $conn->close();
+        
+    
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +57,7 @@
         <ul>
             <li><i class="fas fa-home"></i><a href="login.php">Home</a></li>
             <li><i class="fas fa-address-book"></i><a href="contact.php">New Contact</a></li>
-            <li><i class="fas fa-user"></i><a href="users.php">Users</a></li>
+            <li><i class="fas fa-user"></i><a href="newusers.php">Users</a></li>
             <li><i class="fas fa-sign-out-alt"></i><a href="index.html"> Logout </a></li>
         </ul>
     </aside>
@@ -103,7 +109,7 @@
             
                     <div class="input"> 
                         <label for="company">Company</label required>
-                            <input type="text" id="company" name="company">
+                            <input type="text" id="company" placeholder="Enter Company"  name="company">
                     </div>
                 
                     <div class="input"> 
@@ -119,7 +125,7 @@
                             <select id="assign" name="assigned_to">
                                 <?php while ($rows= mysqli_fetch_array($res)){
                                         ?>
-                                        <option value=" <?php echo $rows['firstname'].$rows['lastname'] ?> " > <?php  echo $rows['firstname'].$rows['lastname']; ?> </option>
+                                        <option value="<?php echo $rows['firstname']?>" > <?php  echo $rows['firstname'].$rows['lastname']; ?> </option>
                                     <?php
                                     }
                                     ?>  
