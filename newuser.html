@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en-us">
     <head>
         <meta charset="utf-8">
@@ -18,7 +17,6 @@
             <section class="sects">
                 <div class="sidebar">
                     <nav class="menu">
-                        <!-- GET HTML LINKS FROM OTHER MEMBERS-->
                         <li><a href="dashboard.html"><img src="https://cdn-icons-png.flaticon.com/512/2413/2413074.png"height="30" width="30"> Home</a></li>
                         <li><a href="contact.php"><img src="https://cdn-icons-png.flaticon.com/512/2102/2102647.png"height="30" width="30"> New Contact</a></li>
                         <li><a href="user.php"><img src="https://cdn-icons-png.flaticon.com/512/3239/3239045.png"height="30" width="30"> Users</a></li>
@@ -46,7 +44,7 @@
 
                             <div class="input">
                                 <label for="email">Email</label>
-                                <input type="text" placeholder="Enter email" id="email" name="email" required>
+                                <input type="text" placeholder="Enter email of format someone@example.com" id="email" name="email" required>
                                 <div class="error"></div>
                             </div>
 
@@ -59,6 +57,7 @@
                             <div class="input"> 
                                 <label for="role">Role</label>
                                 <select name="role" id="role">
+                                    <option value="admin">Select a Role:</option>
                                     <option value="admin">Admin</option>
                                     <option value="member">Member</option>
                                 </select>
