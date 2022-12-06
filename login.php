@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION["email"] = $email;
                 $_SESSION["loggedIn"] = 1;
                 
-                header("Location: newuser.php");
+                header("Location: dashboard.php");
                 exit();
     
             } else {
