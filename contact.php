@@ -1,37 +1,36 @@
 <?php   
     session_start();
-
-    $title = $_POST['title'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $telephone = $_POST['telephone'];
-    $company = $_POST['company'];
-    $type = $_POST['type'];
-    $assigned_to = $_POST['assigned_to'];
-
-    define("DB_SERVER", "localhost");
-    define("DB_USERNAME","root");
-    define("DB_PASSWORD", "");
-    define("DB_NAME","dolphin_crm");
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $title = $_POST['title'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $telephone = $_POST['telephone'];
+        $company = $_POST['company'];
+        $type = $_POST['type'];
+        $assigned_to = $_POST['assigned_to'];
+    }
     
-    $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
+        define("DB_SERVER", "localhost");
+        define("DB_USERNAME","root");
+        define("DB_PASSWORD", "");
+        define("DB_NAME","dolphin_crm");
+    
+            
+        $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
 
-    $query = "SELECT firstname,lastname FROM Users WHERE id>1000";
-    $res = mysqli_query($conn,$query);
+        $query = "SELECT firstname,lastname FROM Users WHERE id>1000";
+        $res = mysqli_query($conn,$query);
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-        }
-    $stmt = $conn->prepare("insert into Contacts (title, firstname, lastname, email, telephone, company, type, assigned_to) values (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssss", $title, $firstname, $lastname, $email, $telephone, $company, $type, $assigned_to);
-    $stmt->execute();
-    $stmt->close();
-    $conn->close();
-
-    // while ($rows_id = mysqli_fetch_array($res)){
-    // $rows_id['id'] = $_GET['creator_id']; 
-    // } 
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+            }
+        $stmt = $conn->prepare("insert into Contacts (title, firstname, lastname, email, telephone, company, type, assigned_to) values (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssss", $title, $firstname, $lastname, $email, $telephone, $company, $type, $assigned_to);
+        $stmt->execute();
+        $stmt->close();
+        $conn->close();
+    
     
 
 ?>
@@ -121,7 +120,7 @@
                     <div class="input"> 
                         <label for="assign">Assigned To</label>
                             <select id="assign" name="assigned_to">
-                                <?php while ($rows = mysqli_fetch_array($res)){
+                                <?php while ($rows= mysqli_fetch_array($res)){
                                         ?>
                                         <option value=" <?php echo $rows['firstname'].$rows['lastname'] ?> " > <?php  echo $rows['firstname'].$rows['lastname']; ?> </option>
                                     <?php
@@ -129,9 +128,8 @@
                                     ?>  
                             </select>
                     </div>
-                
                     <div class="button"> 
-                        <button type="submit"id="saveuser" name="save">Save</button>
+                        <button type="submit" class="btn btn-primary" id="saveuser" name="save">Save</button>
                     </div>
                 </form>
             </div>

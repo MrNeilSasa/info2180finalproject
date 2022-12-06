@@ -17,7 +17,7 @@ id INTEGER(20) NOT NULL AUTO_INCREMENT,
 title VARCHAR(20),firstname VARCHAR(20), 
 lastname VARCHAR(20), email VARCHAR(30), 
 telephone VARCHAR(20), company VARCHAR(20), type VARCHAR(20),  
-assigned_to VARCHAR(20), creator_by INTEGER(20), 
+assigned_to VARCHAR(20), created_by INTEGER(20), 
 created_at DATETIME NOT NULL DEFAULT NOW(),
 updated_at DATETIME NOT NULL DEFAULT NOW(),
 PRIMARY KEY (id)

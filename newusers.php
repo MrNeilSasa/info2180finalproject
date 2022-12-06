@@ -53,7 +53,7 @@ session_start();
                         <h2> New User</h2>
                     </div>
                     <div class="body-content" id="error">
-                        <form action="users.php" id="form" method="post">
+                        <form name="UserForm" action="users.php" id="form" onsubmit="return validateUser()" method="post">
                             <div class="input">
                                 <label for="firstname">First name</label>
                                 <input type="text" placeholder="Enter first name" id="firstname" name="firstname" required>

@@ -15,3 +15,14 @@ function validateForm() {
         alert("Data inserted Successfully");
     }
   }
+
+  function validateUser() {
+    let x = document.forms["UserForm"]["email"].value;
+    if (x == "") {
+      alert("Error: Please enter all fields");
+      return false;
+    }
+    else{
+        alert("Data inserted Successfully");
+    }
+  }
