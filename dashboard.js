@@ -9,12 +9,22 @@ window.addEventListener('load', function() {
     let saleslead = 'dashboard.php?type=SalesLead';
     let support = 'dashboard.php?type=Support';
     let assignedTo = 'dashboard.php?assigned_to=';
+    //let filterbtns = document.getElementsByClassName("filterbtn")
+
+    /*filterbtns.forEach(function(btn){
+        btn.addEventListener('click', function(e){
+            e.preventDefault();
+            console.log(e.currentTarget.dataset);
+        })
+    })
+});*/
 
     allbtn.addEventListener('click', function(event){
         event.preventDefault();
         console.log(all+allvalue)
 
         fetch(all+allvalue)
+
         .then(response => {
             if (response.ok) {
                 return response.text()

@@ -43,36 +43,6 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
 </tbody>
 <?php } 
 
-
-
-elseif($support == 'Support'){
-    $stmt = $conn -> query("SELECT * FROM contacts where type like '%Support%'");
-    $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-    ?>
-
-    <table class='table'>
-  <thread>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Company</th>
-      <th>Type</th>
-    </tr>
-  </thread>
-  <tbody>
-<?php foreach($result as $row): ?>
-      <tr>
-        <td><?=$row['title']; ?></td>
-        <td><?=$row['email']; ?></td>
-        <td><?=$row['company']; ?></td>
-        <td><?=$row['type']; ?></td>
-
-      </tr>
-    <?php endforeach; ?>
-  </tbody>
-
-<?php } 
-
 elseif($saleslead =='SalesLead'){
   $stmt = $conn -> query("SELECT * FROM contacts where type like '%SalesLead%'");
   $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
@@ -85,12 +55,13 @@ elseif($saleslead =='SalesLead'){
     <th>Email</th>
     <th>Company</th>
     <th>Type</th>
+    <th>     </th>
   </tr>
 </thread>
 <tbody>
 <?php foreach($result as $row): ?>
     <tr>
-      <td><?=$row['title']; ?></td>
+      <td><?=$row['title'].' '.$row['firstname'].' '.$row['lastname'];?></td>
       <td><?=$row['email']; ?></td>
       <td><?=$row['company']; ?></td>
       <td><?=$row['type']; ?></td>
@@ -98,4 +69,34 @@ elseif($saleslead =='SalesLead'){
     </tr>
   <?php endforeach; ?>
 </tbody>
+<?php }
+elseif($support == 'Support'){
+    $stmt = $conn -> query("SELECT * FROM contacts where type like '%Support%'");
+    $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+    ?>
+
+    <table class='table'>
+  <thread>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Company</th>
+      <th>Type</th>
+      <th>     </th>
+    </tr>
+  </thread>
+  <tbody>
+<?php foreach($result as $row): ?>
+      <tr>
+        <td><?=$row['title'].' '.$row['firstname'].' '.$row['lastname'];?></td>
+        <td><?=$row['email']; ?></td>
+        <td><?=$row['company']; ?></td>
+        <td><?=$row['type']; ?></td>
+        <td><li><a href="contact.php">View</a></li></td>
+
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+
 <?php } ?>
+
