@@ -157,18 +157,8 @@ tbody tr:nth-child(even) {
     background: #f0f0f2;
   }
   
-/*td {
-    border-bottom: 1px solid #cecfd5;
-    border-right: 1px solid #cecfd5;
-  }*/
+
 
 td:first-child {
     border-left: 1px solid #cecfd5;
   }
-
-.results{
-    /*position: absolute;
-    bottom: 260px;
-    left: 230px;*/
-
-}
