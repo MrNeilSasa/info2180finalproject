@@ -1,3 +1,6 @@
+
+
+
 Drop database if exists dolphin_crm;
 Create database dolphin_crm;
 use dolphin_crm;
@@ -23,4 +26,8 @@ Insert into Contacts(title, firstname, lastname, email, telephone, company, type
 Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) values ("midlane", "killua","zoldyck", "rasclah@email.com", 1234, "huntersassociation","Support",3 , 4, "2000-9-15 12:45:00",  "2000-12-12 12:45:00");
 Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) values ("adc", "gojo", "satoru", "satoru@email.com", 1234, "hunters","Support",4 , 5, "2000-8-16 12:45:00",  "2000-12-12 12:45:00");
 Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) values ("support", "tensa", "zangetsu", "zangetsu@email.com", 1234, "bleach", "SalesLead", 5 , 6, "2000-7-17 12:45:00",  "2000-12-12 12:45:00");
+
+
+
+
 
