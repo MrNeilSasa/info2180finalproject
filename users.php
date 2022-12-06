@@ -51,7 +51,7 @@ else{
 </aside>
 
 <h2>User </h2>
-        <i class="fas fa-pls"></i><button type="button" id="addBtn" class="addbtn"><i class="fa fa-plus" aria-hidden="true"></i>Add User</button>
+        <i class="fas fa-pls"></i><button type="button" id="addBtn" class="addbtn"><i class="fa fa-plus" aria-hidden="true"></i><a href="newuser.html">Add User</a></button>
 
 <table class='table'>
   <thread>
