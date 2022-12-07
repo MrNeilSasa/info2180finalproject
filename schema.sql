@@ -1,30 +1,50 @@
-
-
-
 Drop database if exists dolphin_crm;
 Create database dolphin_crm;
 use dolphin_crm;
 
 drop table if exists Users;
-create table Users (id INTEGER(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, firstname VARCHAR(20), lastname VARCHAR(20), password VARCHAR(20), email VARCHAR(30), role VARCHAR(20), created_at DATETIME);
+create table Users (
+    id INTEGER (20) NOT NULL AUTO_INCREMENT, 
+    firstname VARCHAR(20), lastname VARCHAR(20), 
+    password VARCHAR(20), email VARCHAR(30), 
+    role VARCHAR(20), created_at DATETIME NULL DEFAULT CURRENT_TIMESTAMP(),
+    PRIMARY KEY (id)
+    )AUTO_INCREMENT = 1000;
 
 drop table if exists Contacts;
-create table Contacts (id INTEGER(20) NOT NULL AUTO_INCREMENT Primary KEY, title VARCHAR(20),firstname VARCHAR(20), lastname VARCHAR(20), email VARCHAR(30), telephone VARCHAR(20), company VARCHAR(20), type VARCHAR(30), assigned_to INTEGER(20), created_by INTEGER(20), created_at DATETIME, updated_at DATETIME);
+create table Contacts (
+id INTEGER(20) NOT NULL AUTO_INCREMENT, 
+title VARCHAR(20),firstname VARCHAR(20), 
+lastname VARCHAR(20), email VARCHAR(30), 
+telephone VARCHAR(20), company VARCHAR(20), type VARCHAR(20),  
+assigned_to VARCHAR(20), created_by INTEGER(20), 
+created_at DATETIME NOT NULL DEFAULT NOW(),
+updated_at DATETIME NOT NULL DEFAULT NOW(),
+PRIMARY KEY (id)
+);
 
 drop table if exists Notes;
-create table Notes (id INTEGER(20) NOT NULL AUTO_INCREMENT Primary KEY, contact_id INTEGER(20), comment TEXT(20), created_by DATETIME, created_at DATETIME);
+create table Notes (id INTEGER(20), contact_id INTEGER(20), comment TEXT(20), created_by INTEGER(20), created_at DATETIME);
 
 Update Users SET password = SHA('password123') WHERE email = 'admin@project2.com';
 
 INSERT into Users (password, email) values ('password123', 'admin@project2.com');
-Insert into Users(firstname, lastname, password, email, role, created_at) values ("Kai", "sa", "1234", "kaisa@email.com", "void", "2000-12-12 12:45:00");
-Insert into Users(firstname, lastname, password, email, role, created_at) values ("jhin", "curtaincall", "1234", "jhin@email.com", "Ranger/Mage", "2001-11-12 12:45:00");
-Insert into Users(firstname, lastname, password, email, role, created_at) values ("Talon", "walljump", "1234", "talon@email.com", "assassin", "2002-10-12 12:45:00");
-Insert into Users(firstname, lastname, password, email, role, created_at) values ("Ornn", "Frejlord", "1234", "ornn@email.com", "tank", "2003-9-12 12:45:00");
-Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) values ("toplane", "sosuke", "aizen", "aizen@email.com", 1234, "soulsociety","SalesLead",1 , 2, "2000-11-13 12:45:00",  "2000-12-12 12:45:00");
-Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) values ("jungle", "Itachi", "uchiha", "Itachi@email.com", 1234, "uchihaclan","SalesLead",2 , 3, "2000-10-14 12:45:00",  "2000-12-12 12:45:00");
-Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) values ("midlane", "killua","zoldyck", "rasclah@email.com", 1234, "huntersassociation","Support",3 , 4, "2000-9-15 12:45:00",  "2000-12-12 12:45:00");
-Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) values ("adc", "gojo", "satoru", "satoru@email.com", 1234, "hunters","Support",4 , 5, "2000-8-16 12:45:00",  "2000-12-12 12:45:00");
-Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at) values ("support", "tensa", "zangetsu", "zangetsu@email.com", 1234, "bleach", "SalesLead", 5 , 6, "2000-7-17 12:45:00",  "2000-12-12 12:45:00");
+
+ALTER TABLE Contacts MODIFY COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+
+Insert into Users(firstname, lastname, password, email, role) values ("Jan ", "Levinson", "J@nL3vin", "jan.levinson@paper.co", "Member");
+Insert into Users(firstname, lastname, password, email, role) values ("David ", "Wallace", "W@11@c3D", "david.wallace@paper.co", "Admin");
+Insert into Users(firstname, lastname, password, email, role) values ("Andy ", "Bernard", "IamB3n@rd", "andy.bernard@paper.co", "Member");
+Insert into Users(firstname, lastname, password, email, role) values ("Darryl ", "Philbin", "D@rry1Phi11", "darryl.philbin@paper.com", "Member");
+Insert into Users(firstname, lastname, password, email, role) values ("Erin ", "Hannon", "H@nn0nErin", "erin.hannon@paper.co", "Member");
+Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to) values ("Mr.", "Michael", "Scott", "michael.scott@paper.co", "876-123-1230", "The Paper Company","Sales Lead", "Erin");
+Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to) values ("Mr.", "Dwight", "Shrute", "dwight.shrute@paper.co", "876-123-1231", "The Paper Company","Support", "Jan");
+Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to) values ("Ms.", "Pam","Beesley", "pam.beesley@dunder.co", "876-123-1232", "Dunder Mifflin","Support","Andy");
+Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to) values ("Ms.", "Angela", "Martin", "angela.martin@vance.co", "876-123-1233", "Vance Refrigeration","Sales Lead","Jan");
+Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to) values ("Ms.", "Kelly", "Kapoor", "kelly.kapoor@vance.co", "876-123-1234", "Vance Refrigeration", "Support", "David");
+Insert into Contacts(title, firstname, lastname, email, telephone, company, type, assigned_to) values ("Mr.", "Jim", "Halpert", "jim.halpert@dunder.co", "876-123-1235", "Dunder Mifflin", "Sales Lead", "Darryl");
 
 
+UPDATE Contacts SET created_by = (SELECT u.id from Users u WHERE u.firstname = Contacts.assigned_to);
+DELETE FROM Contacts WHERE firstname IS NULL;
+DELETE FROM Users WHERE email IS NULL;

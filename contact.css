@@ -1,0 +1,164 @@
+html{
+    display: grid; 
+    grid-template-columns: 20% 80% ;
+}
+
+body{
+    background-color: rgb(236, 236, 236);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 960px;
+    display: grid; 
+    grid-template-columns: 20% 80% ;
+  
+}
+
+header {
+    background-color: rgba(5, 3, 47, 0.918);
+    color: white;
+    font-size: 10px;
+    grid-column: span 2;
+    padding: 2px;
+    width: 1400px;
+    
+}
+
+h1{
+    padding-left: 15px;
+    display: flex;
+}
+
+img{
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    padding-left: 1px;
+    float: left;
+    position: relative;
+    bottom: -1.5px;
+}
+i{
+    float: left;
+}
+li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    padding-left: 5px;
+}
+
+aside{
+    grid-column: 2;
+    
+}
+
+.nav-bar{
+    grid-column: 1;
+    background-color: white;
+    height: 700px;    
+}
+
+.addbtn{
+    float: right;
+    margin-top: 22px;
+    padding: 10px;
+    border-radius: 5px;
+    border: hidden;
+    background-color: rgba(28, 120, 196, 0.813);
+    font-size: 15px;
+    color: white;
+    
+}
+
+h2{
+    float: left;
+}
+
+.body-content{
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.body-heading{
+    padding-left: 40px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    height: 60px; 
+}
+
+form{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .input{
+    display: flex;
+    width: calc(100% / 2 - 30px);
+    flex-direction: column;
+    margin: 15px;
+}
+.title-input{
+    display: flex;
+    width: calc(20% / 2 - 30px);
+    flex-direction: column;
+    margin: 15px;
+}
+
+
+.input label{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.input input{
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.title-input select{
+    padding: 10px;
+    border-radius: 5px;
+
+}
+.input select{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sbody{
+    padding-left: 40px;
+    height: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+
+#saveuser{
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    border-style: none;
+    margin-left: 1035px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sects{
+    width: 1215px;
+}
+
+.button{
+    background-color: rgb(236, 236, 236);
+    margin: 15px;
+}
+
+
