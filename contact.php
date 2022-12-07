@@ -51,7 +51,7 @@
         <ul>
             <li><i class="fas fa-home"></i><a href="login.php">Home</a></li>
             <li><i class="fas fa-address-book"></i> New Contact</li>
-            <li><i class="fas fa-user"></i><a href="user.php">Users</a></li>
+            <li><i class="fas fa-user"></i><a href="users.php">Users</a></li>
             <li><i class="fas fa-sign-out-alt"></i><a href="index.html"> Logout </a></li>
         </ul>
     </aside>
