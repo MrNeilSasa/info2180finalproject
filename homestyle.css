@@ -1,0 +1,191 @@
+html{
+    display: grid; 
+    grid-template-columns: 20% 80% ;
+}
+
+body{
+    background-color: rgb(236, 236, 236);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 960px;
+    display: grid; 
+    grid-template-columns: 20% 80% ;
+  
+}
+
+header {
+    background-color: rgba(5, 3, 47, 0.918);
+    color: white;
+    font-size: 10px;
+    grid-column: span 2;
+    padding: 2px;
+    width: 1400px;
+    
+}
+
+h1{
+    padding-left: 15px;
+    display: flex;
+}
+
+img{
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    padding-left: 1px;
+    float: left;
+    position: relative;
+    bottom: -1.5px;
+}
+i{
+    float: left;
+}
+li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    padding-left: 5px;
+}
+
+aside{
+    grid-column: 2;
+    
+}
+
+.nav-bar{
+    grid-column: 1;
+    background-color: white;
+    height: 700px;
+    
+   
+    
+    
+}
+
+.addbtn{
+    float: right;
+    margin-top: 17px;
+    padding: 10px;
+    width: 150px;
+    border-radius: 5px;
+    border: hidden;
+    background-color: rgba(28, 120, 196, 0.813);
+    font-size: 15px;
+    color: white;
+    align-items: center;
+    
+}
+
+.addbtn:hover{
+    background-color: rgba(126, 12, 240, 0.658);
+}
+
+.dashboard-container{
+    margin-left: 10px;
+    width: 1150px;
+}
+h2{
+    float: left;
+}
+.filter{
+    position: relative;
+    top: 70px;
+    right:30px;
+    background-color: white;
+    margin-left: 50px;
+    border-radius: 5px;
+    margin-right: -33px;
+    padding: 0.5px;
+    width: 1000;
+}
+
+.filterbtn{
+    border: hidden;
+    background-color: white;
+    font-size: 17px;
+    color: grey;
+    
+}
+
+.filterbtn:hover{
+    color: blueviolet;
+}
+
+
+table {
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-spacing: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 20px auto;
+    border-radius: 5px;
+    width: 1131px;
+    border: hidden;
+    
+  }
+  
+th{
+    padding: 10px;
+    font-size: 20px;
+    color: #7a7c89;
+    border-radius: 5px;
+    width: 10px;
+    margin: 120px;
+    text-align: center;
+}
+td {
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+   
+  }
+
+  table li{
+    color: rgba(198, 82, 252, 0.851);
+    align-items: center;
+  }
+  
+thead {
+    background: #395870;
+    color: #fff;
+  }
+  
+tbody tr:nth-child(even) {
+    background: #f0f0f2;
+  }
+  
+
+
+td:first-child {
+    border-left: 1px solid #cecfd5;
+  }
+
+.sty_type_sales{
+    border-radius: 50px;
+    background-color: darkgoldenrod;
+    text-align: center;
+    padding: 1px;
+    color: black;
+}
+
+.sty_type_support{
+    border-radius: 50px;
+    background-color:blueviolet;
+    text-align: center;
+    color: white;
+    padding: 1px;
+
+}
+.button{
+    color: blue;
+}
+.button:hover{
+   color: red;
+}
+
+.rows{
+    height: 60px;
+}

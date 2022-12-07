@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
@@ -28,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION["email"] = $email;
                 $_SESSION["loggedIn"] = 1;
                 
-                header("Location: newusers.php");
+                header("Location: newuser.html");
                 exit();
     
             } else {
@@ -39,3 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     
 }
+
+
+
+?>
+
