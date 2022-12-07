@@ -38,8 +38,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" a href="homestyle.css">
-    <script src="app.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" a href="contact.css">
+    <script src="contact.js" crossorigin="anonymous"></script>
     <title>New Contact</title>
 </head>
 <header>
@@ -51,7 +51,7 @@
         <ul>
             <li><i class="fas fa-home"></i><a href="login.php">Home</a></li>
             <li><i class="fas fa-address-book"></i> New Contact</li>
-            <li><i class="fas fa-user"></i><a href="view.php">Users</a></li>
+            <li><i class="fas fa-user"></i><a href="user.php">Users</a></li>
             <li><i class="fas fa-sign-out-alt"></i><a href="index.html"> Logout </a></li>
         </ul>
     </aside>
