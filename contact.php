@@ -1,5 +1,6 @@
-<?php   
+<?php 
     session_start();
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $title = $_POST['title'];
         $firstname = $_POST['firstname'];
@@ -9,33 +10,26 @@
         $company = $_POST['company'];
         $type = $_POST['type'];
         $assigned_to = $_POST['assigned_to'];
-
-
     }
-    
-        define("DB_SERVER", "localhost");
-        define("DB_USERNAME","root");
-        define("DB_PASSWORD", "");
-        define("DB_NAME","dolphin_crm");
-    
-            
-        $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
 
-        $query = "SELECT firstname,lastname FROM Users WHERE id>1000";
-        $res = mysqli_query($conn,$query);
+    define("DB_SERVER", "localhost");
+    define("DB_USERNAME","root");
+    define("DB_PASSWORD", "");
+    define("DB_NAME","dolphin_crm");
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-        $stmt = $conn->prepare("insert into Contacts (title, firstname, lastname, email, telephone, company, type, assigned_to) values (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssss", $title, $firstname, $lastname, $email, $telephone, $company, $type, $assigned_to);
-        $stmt->execute();
-        $stmt->close();
-        $conn->close();
-        
-    
-    
+    $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
+ 
+    $query = "SELECT firstname,lastname FROM Users WHERE id>1000";
+    $res = mysqli_query($conn,$query);
 
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
+    $stmt = $conn->prepare("insert into Contacts (title, firstname, lastname, email, telephone, company, type, assigned_to) values (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssss", $title, $firstname, $lastname, $email, $telephone, $company, $type, $assigned_to);
+    $stmt->execute();
+    $stmt->close();
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -44,8 +38,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" a href="contact.css">
-    <script src="contact.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" a href="homestyle.css">
+    <script src="app.js" crossorigin="anonymous"></script>
     <title>New Contact</title>
 </head>
 <header>
@@ -56,8 +50,8 @@
     <aside class="nav-bar">
         <ul>
             <li><i class="fas fa-home"></i><a href="login.php">Home</a></li>
-            <li><i class="fas fa-address-book"></i><a href="contact.php">New Contact</a></li>
-            <li><i class="fas fa-user"></i><a href="newusers.php">Users</a></li>
+            <li><i class="fas fa-address-book"></i> New Contact</li>
+            <li><i class="fas fa-user"></i><a href="view.php">Users</a></li>
             <li><i class="fas fa-sign-out-alt"></i><a href="index.html"> Logout </a></li>
         </ul>
     </aside>
@@ -76,11 +70,11 @@
                     <div class="title-input">
                         <label for="title">Title</label>
                         <select id="title" name="title">
-                            <option value="Mr">Mr</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Ms">Ms</option>
-                            <option value="Dr">Dr</option>
-                            <option value="Prof">Prof</option>
+                            <option value="Mr.">Mr</option>
+                            <option value="Mrs.">Mrs</option>
+                            <option value="Ms.">Ms</option>
+                            <option value="Dr.">Dr</option>
+                            <option value="Prof.">Prof</option>
                         </select>
                     </div>
 
@@ -140,4 +134,3 @@
     </section>        
 </body>
 </html>
-
