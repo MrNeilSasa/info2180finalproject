@@ -1,10 +1,3 @@
-$(document).ready(function() {
-
-    $("#loginbtn").on('click', function(event){
-        event.preventdefault();
-    })
-});
-
 function validateForm() {
     let x = document.forms["ContactForm"]["company"].value;
     if (x == "") {
