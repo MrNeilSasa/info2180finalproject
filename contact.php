@@ -1,16 +1,23 @@
 <?php 
-include "addcontact.php";
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $title = $_POST['title'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $telephone = $_POST['telephone'];
-    $company = $_POST['company'];
-    $type = $_POST['type'];
-    $assigned_to = $_POST['assigned_to'];
+    session_start();
 
-}
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $title = $_POST['title'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $telephone = $_POST['telephone'];
+        $company = $_POST['company'];
+        $type = $_POST['type'];
+        $assigned_to = $_POST['assigned_to'];
+    }
+
+    define("DB_SERVER", "localhost");
+    define("DB_USERNAME","root");
+    define("DB_PASSWORD", "");
+    define("DB_NAME","dolphin_crm");
+
+    $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
  
     $query = "SELECT firstname,lastname FROM Users WHERE id>1000";
     $res = mysqli_query($conn,$query);
