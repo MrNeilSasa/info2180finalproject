@@ -1,38 +1,28 @@
-<?php   
-    session_start();
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $title = $_POST['title'];
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $email = $_POST['email'];
-        $telephone = $_POST['telephone'];
-        $company = $_POST['company'];
-        $type = $_POST['type'];
-        $assigned_to = $_POST['assigned_to'];
-    }
-    
-        define("DB_SERVER", "localhost");
-        define("DB_USERNAME","root");
-        define("DB_PASSWORD", "");
-        define("DB_NAME","dolphin_crm");
-    
-            
-        $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
+<?php 
+include "addcontact.php";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $title = $_POST['title'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $telephone = $_POST['telephone'];
+    $company = $_POST['company'];
+    $type = $_POST['type'];
+    $assigned_to = $_POST['assigned_to'];
 
-        $query = "SELECT firstname,lastname FROM Users WHERE id>1000";
-        $res = mysqli_query($conn,$query);
+}
+ 
+    $query = "SELECT firstname,lastname FROM Users WHERE id>1000";
+    $res = mysqli_query($conn,$query);
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-        $stmt = $conn->prepare("insert into Contacts (title, firstname, lastname, email, telephone, company, type, assigned_to) values (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssss", $title, $firstname, $lastname, $email, $telephone, $company, $type, $assigned_to);
-        $stmt->execute();
-        $stmt->close();
-        $conn->close();
-    
-    
-
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
+    $stmt = $conn->prepare("insert into Contacts (title, firstname, lastname, email, telephone, company, type, assigned_to) values (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssss", $title, $firstname, $lastname, $email, $telephone, $company, $type, $assigned_to);
+    $stmt->execute();
+    $stmt->close();
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -53,8 +43,8 @@
     <aside class="nav-bar">
         <ul>
             <li><i class="fas fa-home"></i><a href="login.php">Home</a></li>
-            <li><i class="fas fa-address-book"></i><a href="contact.php">New Contact</a></li>
-            <li><i class="fas fa-user"></i><a href="users.php">Users</a></li>
+            <li><i class="fas fa-address-book"></i> New Contact</li>
+            <li><i class="fas fa-user"></i><a href="view.php">Users</a></li>
             <li><i class="fas fa-sign-out-alt"></i><a href="index.html"> Logout </a></li>
         </ul>
     </aside>
@@ -73,11 +63,11 @@
                     <div class="title-input">
                         <label for="title">Title</label>
                         <select id="title" name="title">
-                            <option value="Mr">Mr</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Ms">Ms</option>
-                            <option value="Dr">Dr</option>
-                            <option value="Prof">Prof</option>
+                            <option value="Mr.">Mr</option>
+                            <option value="Mrs.">Mrs</option>
+                            <option value="Ms.">Ms</option>
+                            <option value="Dr.">Dr</option>
+                            <option value="Prof.">Prof</option>
                         </select>
                     </div>
 
@@ -106,7 +96,7 @@
             
                     <div class="input"> 
                         <label for="company">Company</label required>
-                            <input type="text" id="company" name="company">
+                            <input type="text" id="company" placeholder="Enter Company"  name="company">
                     </div>
                 
                     <div class="input"> 
@@ -122,7 +112,7 @@
                             <select id="assign" name="assigned_to">
                                 <?php while ($rows= mysqli_fetch_array($res)){
                                         ?>
-                                        <option value=" <?php echo $rows['firstname'].$rows['lastname'] ?> " > <?php  echo $rows['firstname'].$rows['lastname']; ?> </option>
+                                        <option value="<?php echo $rows['firstname']?>" > <?php  echo $rows['firstname'].$rows['lastname']; ?> </option>
                                     <?php
                                     }
                                     ?>  
@@ -137,4 +127,3 @@
     </section>        
 </body>
 </html>
-
